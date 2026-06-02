@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - IÂ²O Lab | Researchers & Principal Investigator</title>
+    <meta name="description" content="Meet the minds bridging informatics and optimization at I2O Lab, led by Dr. Diva Kurnianingtyas. Discover our research team and student researchers.">
+    <meta name="keywords" content="I2O Lab Team, Dr. Diva Kurnianingtyas, Informatics Researchers, Optimization Experts, Universitas Brawijaya Researchers">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://i2olab.com/people">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://i2olab.com/people">
+    <meta property="og:title" content="Our Team - IÂ²O Lab">
+    <meta property="og:description" content="Meet the research team bridging informatics and optimization at I2O Lab.">
+    <meta property="og:image" content="https://i2olab.com/assets/images/logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://i2olab.com/people">
+    <meta property="twitter:title" content="Our Team - IÂ²O Lab">
+    <meta property="twitter:description" content="Meet the research team bridging informatics and optimization at I2O Lab.">
+    <meta property="twitter:image" content="https://i2olab.com/assets/images/logo.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body {
+            background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+            background-color: #f8fafc; /* light background for the dots to sit on */
+        }
+        .people-hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 0;
+            border-bottom: 1px dashed #e2e8f0;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        .people-hero-text { flex: 1.2; z-index: 2; }
+        .people-hero-text h1 { font-size: 3.5rem; color: #0f172a; margin-bottom: 15px; }
+        .people-hero-text p { color: #64748b; font-size: 1.1rem; max-width: 500px; line-height: 1.6; }
+        .people-hero-img { flex: 0.8; text-align: right; z-index: 2; }
+        .people-hero-img img { width: 100%; max-width: 450px; height: auto; display: inline-block; transform: scale(1.1); }
+
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.6rem;
+            color: #0f172a;
+            margin-bottom: 30px;
+        }
+        .section-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e2e8f0;
+            color: #64748b;
+            font-size: 1.5rem;
+        }
+
+        .sub-divider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--color-green);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 40px 0 25px;
+        }
+        .sub-divider::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background-color: var(--color-green);
+        }
+
+        /* PI Card Copied from index.html */
+        .pi-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        }
+        .pi-photo-container { position: relative; flex-shrink: 0; width: 220px; height: 220px; }
+        .pi-photo-container img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 6px solid #ffffff; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); position: relative; z-index: 2; }
+        .pi-photo-accent { position: absolute; left: -12px; bottom: -12px; width: 110%; height: 110%; border-radius: 50%; border: 3px solid #22c55e; clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%); z-index: 1; }
+        .pi-photo-dot { position: absolute; width: 14px; height: 14px; background-color: #22c55e; border-radius: 50%; z-index: 3; }
+        .pi-content { flex: 1; z-index: 2; }
+        .pi-globe { position: absolute; right: -60px; top: -60px; width: 380px; height: 380px; opacity: 0.15; z-index: 0; pointer-events: none; }
+
+        /* Team Cards */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .team-card {
+            border-radius: 24px;
+            padding: 30px;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+        }
+        .team-card.purple-theme { background: linear-gradient(135deg, #faf5ff 0%, #ffffff 100%); }
+        .team-card.orange-theme { background: linear-gradient(135deg, #fff7ed 0%, #ffffff 100%); }
+        .team-card.green-theme { background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%); }
+
+        .team-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            z-index: 2;
+            border: 4px solid #ffffff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .team-info { z-index: 2; flex: 1; }
+        .team-info h4 { font-size: 1.4rem; color: #0f172a; margin-bottom: 5px; }
+        .team-info .role { font-weight: 700; font-size: 0.95rem; margin-bottom: 15px; display: block; }
+        .team-card.purple-theme .role { color: var(--color-purple); }
+        .team-card.orange-theme .role { color: #f97316; }
+        .team-card.green-theme .role { color: var(--color-green); }
+
+        .team-info .inst { display: flex; align-items: flex-start; gap: 10px; color: #64748b; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.4; }
+        .team-info .project { color: #475569; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px; }
+        .team-info .project-label { font-size: 0.8rem; font-weight: 700; margin-bottom: 2px; display: block; }
+        .team-card.green-theme .project-label { color: var(--color-green); }
+
+        .btn-sm {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid;
+            transition: all 0.2s;
+            background: transparent;
+        }
+        .team-card.purple-theme .btn-sm { color: var(--color-purple); border-color: #d8b4fe; }
+        .team-card.purple-theme .btn-sm:hover { background: #faf5ff; }
+        .team-card.orange-theme .btn-sm { color: #f97316; border-color: #fdba74; }
+        .team-card.orange-theme .btn-sm:hover { background: #fff7ed; }
+        .team-card.green-theme .btn-sm { color: var(--color-green); border-color: #86efac; }
+        .team-card.green-theme .btn-sm:hover { background: #f0fdf4; }
+
+        @media (max-width: 992px) {
+            .team-grid { grid-template-columns: 1fr; }
+            .pi-card, .team-card { flex-direction: column; text-align: center; }
+            .team-info .inst { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="assets/images/logo.svg" alt="I2O Lab Logo" style="height: 55px;" onerror="this.src='https://placehold.co/100x48/ffffff/22c55e?text=I%C2%B2O+Lab'">
+            </a>
+            <nav class="nav">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/research" class="nav-link">Research</a>
+                <a href="/people" class="nav-link active">People</a>
+                <a href="/gallery" class="nav-link">Gallery</a>
+                <a href="/contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="people-hero">
+            <div class="people-hero-text">
+                <h1>Our <span class="text-green">Research</span> Team</h1>
+                <p>Meet the minds bridging informatics and optimization to solve real-world industrial challenges.</p>
+            </div>
+            <div class="people-hero-img">
+                <img src="assets/images/hero-graphic.svg" alt="I2O People Graphic">
+            </div>
+        </section>
+
+        <!-- Principal Investigator -->
+        <div class="section-title">
+            <div class="section-icon"><i class="ph ph-user"></i></div>
+            <h3>Principal Investigator</h3>
+        </div>
+        
+        <div class="pi-card">
+            <img src="data:image/svg+xml;utf8,<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='48' fill='none' stroke='%2322c55e' stroke-width='0.4'/><ellipse cx='50' cy='50' rx='25' ry='48' fill='none' stroke='%2322c55e' stroke-width='0.4'/><ellipse cx='50' cy='50' rx='48' ry='15' fill='none' stroke='%2322c55e' stroke-width='0.4'/><ellipse cx='50' cy='50' rx='42' ry='35' fill='none' stroke='%2322c55e' stroke-width='0.2' stroke-dasharray='2,2'/><circle cx='50' cy='2' r='2' fill='%2322c55e'/><circle cx='25' cy='50' r='2.5' fill='%2322c55e'/><circle cx='75' cy='50' r='1.5' fill='%2322c55e'/><circle cx='50' cy='98' r='3' fill='%2322c55e'/><circle cx='15' cy='30' r='1.5' fill='%2322c55e'/><circle cx='85' cy='70' r='2' fill='%2322c55e'/><circle cx='70' cy='20' r='1' fill='%2322c55e'/><path d='M50 2 L25 50 L50 98 L75 50 Z' fill='none' stroke='%2322c55e' stroke-width='0.3'/><path d='M15 30 L25 50 L85 70' fill='none' stroke='%2322c55e' stroke-width='0.3'/></svg>" alt="" class="pi-globe">
+            
+            <div class="pi-photo-container">
+                <div class="pi-photo-accent"></div>
+                <div class="pi-photo-dot" style="bottom: 10px; left: -22px;"></div>
+                <div class="pi-photo-dot" style="top: 50%; right: -25px; transform: scale(0.6);"></div>
+                <img src="assets/images/pi-photo.jpg" alt="Dr. Diva Kurnianingtyas, S.Kom." onerror="this.src='https://placehold.co/300x300/e2e8f0/64748b?text=Dr.+Diva'">
+            </div>
+
+            <div class="pi-content">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 8px;">
+                    <span class="text-green" style="font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">The Principal Investigator</span>
+                    <div style="height: 1px; width: 40px; background-color: var(--color-green);"></div>
+                </div>
+                <h3 style="font-size: 2.2rem; margin-bottom: 16px; color: #0f172a;">Dr. Diva Kurnianingtyas, S.Kom.</h3>
+                <p style="font-size: 1.05rem; line-height: 1.6; color: #475569; margin-bottom: 24px; max-width: 90%;">Leading the vision and research direction of IÂ²O Lab, with a focus on computational intelligence, optimization, and their transformative impact on industrial systems.</p>
+                <a href="mailto:divaku@ub.ac.id" style="display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 700; color: #334155; font-size: 1.1rem;">
+                    <span style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background-color: var(--color-green); color: white;">
+                        <i class="ph-fill ph-envelope" style="font-size: 1.2rem;"></i>
+                    </span>
+                    Contact PI
+                </a>
+            </div>
+        </div>
+
+        <!-- Research Team & Collaborators -->
+        <div class="section-title">
+            <div class="section-icon"><i class="ph ph-users"></i></div>
+            <h3>Research Team & Collaborators</h3>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-card purple-theme">
+                <img src="https://placehold.co/200x200/e9d5ff/9333ea?text=Collaborator" alt="Collaborator Name" class="team-photo">
+                <div class="team-info">
+                    <h4>Prof. Dr. [Dummy Name]</h4>
+                    <span class="role">International Research Partner</span>
+                    <div class="inst">
+                        <i class="ph ph-bank" style="font-size: 1.2rem;"></i>
+                        <span>Faculty of Computer Science & Information Technology, Universiti Malaya</span>
+                    </div>
+                    <a href="#" class="btn-sm"><i class="ph ph-arrow-up-right"></i> View CV / Profile</a>
+                </div>
+            </div>
+
+            <div class="team-card orange-theme">
+                <img src="https://placehold.co/200x200/fed7aa/ea580c?text=Co-Researcher" alt="Co-Researcher Name" class="team-photo">
+                <div class="team-info">
+                    <h4>Dr. [Dummy Co-Researcher]</h4>
+                    <span class="role">Senior Co-Investigator</span>
+                    <div class="inst">
+                        <i class="ph ph-bank" style="font-size: 1.2rem;"></i>
+                        <span>Universitas Brawijaya</span>
+                    </div>
+                    <a href="#" class="btn-sm"><i class="ph ph-arrow-up-right"></i> View CV / Profile</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Researchers -->
+        <div class="section-title">
+            <div class="section-icon"><i class="ph ph-graduation-cap"></i></div>
+            <h3>Student Researchers</h3>
+        </div>
+
+        <div class="sub-divider">Master's Degree (S2) Candidates</div>
+
+        <div class="team-grid">
+            <div class="team-card green-theme">
+                <img src="assets/images/nathan.jpg" alt="Nathan Daud, S.Kom." class="team-photo" onerror="this.src='https://placehold.co/200x200/bbf7d0/16a34a?text=Nathan'">
+                <div class="team-info">
+                    <h4>Nathan Daud, S.Kom.</h4>
+                    <div class="project">
+                        <span class="project-label">Project Focus:</span>
+                        Generative Engineering Optimization (GEO) in Smart Logistics
+                    </div>
+                    <a href="#" class="btn-sm"><i class="ph ph-user"></i> View Student CV</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-divider" style="color: #f97316;">Undergraduate (S1) Candidates</div>
+        
+        <div class="team-grid">
+            <div class="team-card orange-theme">
+                <img src="assets/images/alexander.jpg" alt="Alexander Imanuel Widjanarko" class="team-photo" onerror="this.src='https://placehold.co/200x200/fed7aa/ea580c?text=Alexander'">
+                <div class="team-info">
+                    <h4>Alexander Imanuel Widjanarko</h4>
+                    <div class="project">
+                        <span class="project-label">Project Focus:</span>
+                        Metaheuristic Routing for Public Health Intervention Programs
+                    </div>
+                    <a href="#" class="btn-sm"><i class="ph ph-user"></i> View Student CV</a>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="padding: 4rem 0 2rem; background-color: #f8fafc; border-top: 1px solid #e2e8f0;">
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem;">
+            <div style="flex: 1;">
+                <a href="/" class="logo">
+                    <img src="assets/images/logo.svg" alt="I2O Lab Logo" style="height: 40px;" onerror="this.src='https://placehold.co/100x48/ffffff/22c55e?text=I%C2%B2O+Lab'">
+                </a>
+            </div>
+            
+            <nav class="nav" style="display: flex; gap: 2.5rem; flex: 2; justify-content: center; font-size: 0.95rem;">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/research" class="nav-link">Research</a>
+                <a href="/people" class="nav-link active">People</a>
+                <a href="/gallery" class="nav-link">Gallery</a>
+                <a href="/contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="footer-socials" style="display: flex; gap: 1rem; flex: 1; justify-content: flex-end;">
+                <a href="#" class="social-icon" style="background-color: white; border: 1px solid #e2e8f0; color: #64748b; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.2s;"><i class="ph ph-envelope-simple" style="font-size: 1.2rem;"></i></a>
+                <a href="#" class="social-icon" style="background-color: white; border: 1px solid #e2e8f0; color: #64748b; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.2s;"><i class="ph ph-linkedin-logo" style="font-size: 1.2rem;"></i></a>
+                <a href="#" class="social-icon" style="background-color: white; border: 1px solid #e2e8f0; color: #64748b; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.2s;"><i class="ph ph-github-logo" style="font-size: 1.2rem;"></i></a>
+            </div>
+        </div>
+        
+        <div class="container" style="font-size: 0.9rem; color: #94a3b8; text-align: left;">
+            &copy; 2026 IÂ²O Lab. All rights reserved.
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

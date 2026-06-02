@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I&sup2;O Lab | Industrial Informatics & Optimization Laboratory</title>
+    <meta name="description" content="I2O Lab (Industrial Informatics & Optimization) bridges the gap between computational intelligence and industrial impact. Researching smart logistics and GEO.">
+    <meta name="keywords" content="Industrial Informatics, Optimization Algorithms, Smart Logistics, Generative Engineering Optimization, Universitas Brawijaya, I2O Lab, Computer Science">
+    <meta name="author" content="I2O Lab">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://i2olab.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://i2olab.com/">
+    <meta property="og:title" content="I&sup2;O Lab | Industrial Informatics & Optimization Laboratory">
+    <meta property="og:description" content="Bridging the gap between computational intelligence and industrial impact through applied informatics and optimization.">
+    <meta property="og:image" content="https://i2olab.com/assets/images/logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://i2olab.com/">
+    <meta property="twitter:title" content="I&sup2;O Lab | Industrial Informatics & Optimization Laboratory">
+    <meta property="twitter:description" content="Bridging the gap between computational intelligence and industrial impact through applied informatics and optimization.">
+    <meta property="twitter:image" content="https://i2olab.com/assets/images/logo.png">
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ResearchOrganization",
+      "name": "I&sup2;O Lab (Industrial Informatics & Optimization)",
+      "url": "https://i2olab.com",
+      "logo": "https://i2olab.com/assets/images/logo.png",
+      "description": "I2O Lab bridges the gap between computational intelligence and industrial impact.",
+      "parentOrganization": {
+        "@type": "EducationalOrganization",
+        "name": "Universitas Brawijaya"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        /* Home Specific Styles */
+        .hero {
+            padding: 0;
+            min-height: calc(100vh - 90px);
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            background-image:
+                url('assets/images/factory-bg.svg'),
+                radial-gradient(at 0% 0%, hsla(142, 71%, 45%, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(38, 100%, 67%, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(258, 90%, 75%, 0.08) 0px, transparent 50%);
+            background-position: bottom center, center, center, center;
+            background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+            background-size: 100% 30%, cover, cover, cover;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        /* Decorative Background Elements */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 600px;
+            height: 400px;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="%23A78BFA" stroke-width="0.5" stroke-opacity="0.5" d="M38.1,-46.8C51.6,-36.8,66.4,-26.8,71.2,-13C76,0.8,70.9,18.4,60.6,32.2C50.2,46,34.6,56,18.2,59.3C1.8,62.6,-15.4,59.3,-30.2,51.1C-45.1,42.8,-57.6,29.6,-61.8,14.4C-66,-0.8,-61.8,-17.9,-52.1,-30.4C-42.3,-42.9,-27,-50.7,-13.4,-53.4C0.2,-56.1,13.7,-53.7,24.6,-56.9C29.1,-58.2,34.2,-50.6,38.1,-46.8Z" transform="translate(100 100)"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 0;
+            filter: blur(2px);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+        }
+
+        .hero h1 span.green {
+            color: var(--color-green);
+        }
+
+        .hero h1 span.coral {
+            color: var(--color-coral);
+        }
+
+        .hero h1 span.purple {
+            color: var(--color-purple);
+        }
+
+        .hero h1 span.yellow {
+            color: var(--color-yellow);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+        }
+
+        .hero-text {
+            flex: 1.2;
+        }
+
+        .hero-text h1 {
+            line-height: 1.05;
+        }
+
+        .hero-image {
+            flex: 0.8;
+            text-align: center;
+        }
+
+        .bg-dots {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+        }
+
+        .hero-image img {
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+        .feature-block {
+            display: flex;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+        }
+
+        .pi-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .pi-photo-container {
+            position: relative;
+            flex-shrink: 0;
+            width: 220px;
+            height: 220px;
+        }
+
+        .pi-photo-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #ffffff;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .pi-photo-accent {
+            position: absolute;
+            left: -12px;
+            bottom: -12px;
+            width: 110%;
+            height: 110%;
+            border-radius: 50%;
+            border: 3px solid #22c55e;
+            clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+            z-index: 1;
+        }
+
+        .pi-photo-dot {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            z-index: 3;
+        }
+
+        .pi-content {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .pi-globe {
+            position: absolute;
+            right: -60px;
+            top: -60px;
+            width: 380px;
+            height: 380px;
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bottom-features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-6);
+            margin-top: var(--space-8);
+            margin-bottom: var(--space-12);
+            padding-bottom: var(--space-10);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .bottom-feature-item {
+            position: relative;
+            padding-right: var(--space-4);
+        }
+
+        .bottom-feature-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 15%;
+            height: 70%;
+            width: 1px;
+            background-color: #e2e8f0;
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .pi-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .bottom-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .bottom-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="assets/images/logo.svg" alt="I2O Lab Logo" style="height: 55px;"
+                    onerror="this.src='https://placehold.co/100x48/ffffff/22c55e?text=I%C2%B2O+Lab'">
+            </a>
+            <nav class="nav">
+                <a href="/" class="nav-link active">Home</a>
+                <a href="/contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 style="color: #0f172a;">
+                    Transforming <br>
+                    <span style="white-space: nowrap; color: var(--color-green);">Industrial Complexities</span> <br>
+                    <span>into Efficiency</span> <br>
+                    Through Applied <br>
+                    <span style="color: var(--color-green);">Informatics &</span> <br>
+                    <span style="color: var(--color-green);">Optimization.</span>
+                </h1>
+                <p>
+                    At I&sup2;O Lab, we bridge the gap between computational intelligence and industrial impact. We leverage
+                    advanced informatics to architect smart data frameworks and deploy powerful optimization algorithms
+                    to solve concrete bottlenecksâ€”from logistics routing to supply chain inefficiencies. We transform
+                    raw industrial challenges into automated, high-efficiency digital solutions.
+                </p>
+                <div class="flex gap-4 mt-8">
+                    <a href="#about" class="btn btn-primary">
+                        See Our Industrial Solutions <i class="ph ph-arrow-right"></i>
+                    </a>
+                    <a href="/contact" class="btn btn-outline">
+                        <i class="ph ph-users"></i> Collaborate With Us
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image" style="position: relative;">
+                <img src="assets/images/hero-graphic.svg" alt="I2O Graphic"
+                    style="max-width: 100%; transform: scale(1.2, 1.35) translate(5%, -10%);">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-dots">
+        <div class="container">
+            <span class="badge badge-green">About The Laboratory</span>
+            <div class="grid grid-cols-2 items-center">
+                <div>
+                    <h2 style="margin-bottom: var(--space-8);">Driving Efficiency Through <br><span class="text-green"
+                            style="color: var(--color-green);">Informatics</span> & <span class="text-purple"
+                            style="color: var(--color-purple);">Optimization</span></h2>
+
+                    <div class="feature-block">
+                        <div class="card-icon icon-green">
+                            <i class="ph ph-brain"></i>
+                        </div>
+                        <div>
+                            <p>I&sup2;O Lab is a virtual research hub dedicated to applying computer science and informatics
+                                frameworks to drive measurable efficiency in the industrial sector. Instead of focusing
+                                solely on theoretical models, we integrate robust information systems with advanced
+                                metaheuristic optimization algorithms to deliver actionable, prescriptive operational
+                                decisions.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-block">
+                        <div class="card-icon icon-purple">
+                            <i class="ph ph-target"></i>
+                        </div>
+                        <div>
+                            <p>Our core research targets complex bottlenecks within logistics networks, fleet routing,
+                                and supply chain management. By developing cutting-edge frameworks like Generative
+                                Engineering Optimization (GEO), we continuously aim to deliver adaptive digital
+                                solutions tailored to the dynamics of modern industrial workflows.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <!-- The generated isometric tech illustration -->
+                    <img src="assets/images/isometric_tech.png" alt="Tech Illustration"
+                        style="border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); max-width: 100%;">
+                </div>
+            </div>
+
+            <!-- Bottom Features -->
+            <div class="bottom-features">
+                <div class="flex gap-4 bottom-feature-item">
+                    <i class="ph ph-cube text-green" style="font-size: 2.5rem;"></i>
+                    <div>
+                        <h4 style="margin-bottom: 4px; font-size: 1rem;">Smart Solutions</h4>
+                        <p style="font-size: 0.8rem; margin: 0; color: #64748b;">Data-driven & intelligent decision
+                            making.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 bottom-feature-item">
+                    <i class="ph ph-target text-coral" style="font-size: 2.5rem;"></i>
+                    <div>
+                        <h4 style="margin-bottom: 4px; font-size: 1rem;">Optimization</h4>
+                        <p style="font-size: 0.8rem; margin: 0; color: #64748b;">Advanced algorithms for real-world
+                            challenges.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 bottom-feature-item">
+                    <i class="ph ph-factory text-yellow" style="font-size: 2.5rem;"></i>
+                    <div>
+                        <h4 style="margin-bottom: 4px; font-size: 1rem;">Industrial Impact</h4>
+                        <p style="font-size: 0.8rem; margin: 0; color: #64748b;">Delivering measurable value to
+                            industry.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 bottom-feature-item">
+                    <i class="ph ph-users-three text-purple" style="font-size: 2.5rem;"></i>
+                    <div>
+                        <h4 style="margin-bottom: 4px; font-size: 1rem;">Open Collaboration</h4>
+                        <p style="font-size: 0.8rem; margin: 0; color: #64748b;">Connecting ideas, people, and
+                            opportunities.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PI Card -->
+            <div class="pi-card">
+                <img src="data:image/svg+xml;utf8,<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='50' r='48' fill='none' stroke='%2322c55e' stroke-width='0.4'/><ellipse cx='50' cy='50' rx='25' ry='48' fill='none' stroke='%2322c55e' stroke-width='0.4'/><ellipse cx='50' cy='50' rx='48' ry='15' fill='none' stroke='%2322c55e' stroke-width='0.4'/><ellipse cx='50' cy='50' rx='42' ry='35' fill='none' stroke='%2322c55e' stroke-width='0.2' stroke-dasharray='2,2'/><circle cx='50' cy='2' r='2' fill='%2322c55e'/><circle cx='25' cy='50' r='2.5' fill='%2322c55e'/><circle cx='75' cy='50' r='1.5' fill='%2322c55e'/><circle cx='50' cy='98' r='3' fill='%2322c55e'/><circle cx='15' cy='30' r='1.5' fill='%2322c55e'/><circle cx='85' cy='70' r='2' fill='%2322c55e'/><circle cx='70' cy='20' r='1' fill='%2322c55e'/><path d='M50 2 L25 50 L50 98 L75 50 Z' fill='none' stroke='%2322c55e' stroke-width='0.3'/><path d='M15 30 L25 50 L85 70' fill='none' stroke='%2322c55e' stroke-width='0.3'/></svg>"
+                    alt="" class="pi-globe">
+
+                <div class="pi-photo-container">
+                    <div class="pi-photo-accent"></div>
+                    <div class="pi-photo-dot" style="bottom: 10px; left: -22px;"></div>
+                    <div class="pi-photo-dot" style="top: 50%; right: -25px; transform: scale(0.6);"></div>
+                    <img src="assets/images/pi-photo.jpg" alt="Dr. Diva Kurnianingtyas, S.Kom."
+                        onerror="this.src='https://placehold.co/300x300/e2e8f0/64748b?text=Dr.+Diva'">
+                </div>
+
+                <div class="pi-content">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 8px;">
+                        <span class="text-green"
+                            style="font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">The
+                            Principal Investigator</span>
+                        <div style="height: 1px; width: 40px; background-color: var(--color-green);"></div>
+                    </div>
+                    <h3 style="font-size: 2.2rem; margin-bottom: 16px; color: #0f172a;">Dr. Diva Kurnianingtyas, S.Kom.
+                    </h3>
+                    <p
+                        style="font-size: 1.05rem; line-height: 1.6; color: #475569; margin-bottom: 24px; max-width: 90%;">
+                        Leading the vision and research direction of I&sup2;O Lab, with a focus on computational
+                        intelligence, optimization, and their transformative impact on industrial systems.</p>
+                    <a href="mailto:divaku@ub.ac.id"
+                        style="display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 700; color: #334155; font-size: 1.1rem;">
+                        <span
+                            style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background-color: var(--color-green); color: white;">
+                            <i class="ph-fill ph-envelope" style="font-size: 1.2rem;"></i>
+                        </span>
+                        Contact PI
+                    </a>
+                </div>
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="padding: 4rem 0 2rem; background-color: #f8fafc; border-top: 1px solid #e2e8f0;">
+        <div class="container"
+            style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem;">
+            <div style="flex: 1;">
+                <a href="/" class="logo">
+                    <img src="assets/images/logo.svg" alt="I2O Lab Logo" style="height: 40px;"
+                        onerror="this.src='https://placehold.co/100x48/ffffff/22c55e?text=I%C2%B2O+Lab'">
+                </a>
+            </div>
+
+            <nav class="nav" style="display: flex; gap: 2.5rem; flex: 2; justify-content: center; font-size: 0.95rem;">
+                <a href="/" class="nav-link active">Home</a>
+                <a href="/contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="footer-socials" style="display: flex; gap: 1rem; flex: 1; justify-content: flex-end;">
+                <a href="#" class="social-icon"
+                    style="background-color: white; border: 1px solid #e2e8f0; color: #64748b; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.2s;"><i
+                        class="ph ph-envelope-simple" style="font-size: 1.2rem;"></i></a>
+                <a href="#" class="social-icon"
+                    style="background-color: white; border: 1px solid #e2e8f0; color: #64748b; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.2s;"><i
+                        class="ph ph-linkedin-logo" style="font-size: 1.2rem;"></i></a>
+                <a href="#" class="social-icon"
+                    style="background-color: white; border: 1px solid #e2e8f0; color: #64748b; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.2s;"><i
+                        class="ph ph-github-logo" style="font-size: 1.2rem;"></i></a>
+            </div>
+        </div>
+
+        <div class="container" style="font-size: 0.9rem; color: #94a3b8; text-align: left;">
+            &copy; 2026 I&sup2;O Lab. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
