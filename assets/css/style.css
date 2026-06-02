@@ -363,7 +363,11 @@ p {
   }
   
   .logo img {
-    height: 45px !important;
+    height: 50px !important;
+  }
+  
+  .hidden-mobile {
+    display: none !important;
   }
   
   .hero-text .flex {
