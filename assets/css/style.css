@@ -352,3 +352,38 @@ p {
   color: white;
   border-color: var(--color-text-main);
 }
+
+/* Mobile Responsiveness Fixes */
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .logo img {
+    height: 45px !important;
+  }
+  
+  .hero-text .flex {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-text .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer .container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.25rem !important;
+  }
+}
